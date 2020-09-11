@@ -66,6 +66,7 @@ export default function Form() {
   };
 
   const [users, setUsers] = useState([]);
+
   const formSubmit = e => {
     e.preventDefault();
     setFormState({
@@ -77,7 +78,8 @@ export default function Form() {
     console.log("form submitted!");
     axios
       .post("https://reqres.in/api/users", formState)
-      .then(response => {console.log(response); setUsers(response.data);})
+      .then(response => {console.log(response); 
+        setUsers(response.data);})
       .catch(err => console.log(err));
   };
 console.log(users);
@@ -148,7 +150,7 @@ console.log(users);
       </label>
       <button disabled={buttonDisabled}>Submit</button>
     </form>
-     <pre>{JSON.stringify(users, null, 2)}</pre>
+     <pre>{JSON.stringify(users, null, 1)}</pre>
      </div>
   );
 }
